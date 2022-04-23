@@ -12,37 +12,13 @@ export class Root extends React.Component {
           email: "",
           authenticated: false,
         };
-        this.handleSignwithGoogle = this.handleSignwithGoogle.bind(this);
       };
 
-    /*componentDidMount() {
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          this.setState({authenticated: true});
-          console.log('there is an user');
-      } else {
-          //this.setState({authenticated: false});
-          console.log('none');
-        }
-    });*/
-   
-    handleSignwithGoogle = () => {
-      console.log('try with google');
-       var provider = new firebase.auth.GoogleAuthProvider();
-       firebase.auth().signInWithPopup(provider)
-         .then(function (result) {
-            //this.setState({unsign: false, email: email});
-            this.setState({ authenticated: true });
-         })
-         .catch(function (error) {
-           alert(error.message);
-         });
-    }
     handleSignIn = (email, password) => {
        firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 // Signed in
-                alert('success');
+                alert('signin success');
                 //this.setState({unsign: false, email: email});
                 this.setState({authenticated: true});
                 // ...
@@ -67,13 +43,12 @@ export class Root extends React.Component {
     }
     render() {
         return (
-          this.state.authenticated == false? (
+          this.state.authenticated == false ? (
           <SignInPage
             user={this.state.user}
             email={this.state.email}
             password={this.state.password}
             handleSignIn={this.handleSignIn}
-            handleSignwithGoogle={this.handleSignwithGoogle}
           />
           ) : (
           <Home
@@ -87,4 +62,3 @@ export class Root extends React.Component {
 }
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-//ReactDOM.render(<App />, document.getElementById("root"));

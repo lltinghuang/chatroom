@@ -1,18 +1,9 @@
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 export default class SignInPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       userEmail: "",
-      password: "",
-      nickname: "",
-      open: false,
+      password: ""
     };
 
   }
@@ -21,26 +12,20 @@ export default class SignInPage extends React.Component {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.setState({ open: true });
+        alert("creat success!");
+        this.props.handleSignIn(this.state.userEmail, this.state.password);
       })
       .catch((error) => {
         alert(error.message);
         // ..
       });
   };
-  handleSignwithGoogle = () => {
-    this.props.handleSignwithGoogle();
-  }
+ 
   handleSignIn = () => {
     this.props.handleSignIn(this.state.userEmail, this.state.password);
   };
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
   render() {
-    const {handleSignwithGoogle} = this.props;
     return (
       <div>
         <header>
@@ -84,13 +69,7 @@ export default class SignInPage extends React.Component {
               >
                 Sign in
               </button>
-              <button
-                class="submit_class"
-                id="btngoogle"
-                onClick={this.handleSignwithGoogle}
-              >
-                Sign in with Google
-              </button>
+              
               <button
                 class="submit_class"
                 id="btnSignUp"
@@ -104,31 +83,7 @@ export default class SignInPage extends React.Component {
                 New account
               </button>
             </div>
-            <Dialog open={this.state.open} onClose={this.handleClose}>
-              <DialogTitle>NickName</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  Please enter your nickname here. And press "sign in" button to
-                  enter the chat room.
-                </DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Nick Name"
-                  type="text"
-                  fullWidth
-                  variant="standard"
-                  onChange={(e) => {
-                    this.setState({ nickname: e.target.value });
-                  }}
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={this.handleClose}>Cancel</Button>
-                <Button onClick={this.handleSignIn}>Sign In</Button>
-              </DialogActions>
-            </Dialog>
+            
           </div>
         </div>
         <footer>

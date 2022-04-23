@@ -6,14 +6,15 @@ body {
   background: #C5DDEB;
   font: 14px/20px "Lato", Arial, sans-serif;
   color: white;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .container {
   margin: 0 auto;
   padding: 0;
-  width: 1200px;
+  width: 100%;
+  height: 100vh;
   background: darkblue;
   border-radius: 5px;
 }
@@ -22,25 +23,16 @@ body {
   width: 30%;
   float: left;
 }
-.people-list .search {
+.people-list .left-header {
+  height: 5vh;
   padding: 20px;
-}
-.people-list input {
-  border-radius: 3px;
-  border: none;
-  padding: 14px;
-  color: darkblue;
-  background: white;
-  width: 90%;
-  font-size: 14px;
-}
-.people-list .fa-search {
-  position: relative;
-  left: -25px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
 }
 .people-list ul {
   padding: 20px;
-  height: 645px;
+  height: 60vh;
   overflow-y: scroll;
   background-color: powderblue;
 }
@@ -58,15 +50,15 @@ body {
   width: 100%;
   background-color: wheat;
 }
-.people-list .status {
-  color: #92959E;
-}
 .name {
   height: 60px;
+  color: black;
+  font: 20px/30px "Lato", Arial, sans-serif;
 }
 
 .chat {
   width: 70%;
+  height: 100vh;
   float: left;
   background: #F2F5F8;
   border-top-right-radius: 5px;
@@ -76,7 +68,7 @@ body {
 .chat .chat-header {
   padding: 20px;
   border-bottom: 2px solid white;
-  height: 10%;
+  height: 10vh;
 }
 .chat .chat-header img {
   float: left;
@@ -100,7 +92,7 @@ body {
   margin-top: 12px;
 }
 .chat .chat-history {
-  height: 650px;
+  height: 70vh;
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
@@ -148,10 +140,12 @@ body {
 .chat .chat-message {
   padding: 30px;
 }
+
 .chat .chat-message textarea {
   width: 100%;
+  height: 10vh;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font: 14px/22px "Lato", Arial, sans-serif;
   margin-bottom: 1px;
   border-radius: 5px;
@@ -180,15 +174,6 @@ body {
   margin-right: 3px;
   font-size: 10px;
 }
-
-.online {
-  color: #86BB71;
-}
-
-.offline {
-  color: #E38968;
-}
-
 .me {
   color: #94C2ED;
 }
@@ -204,7 +189,7 @@ body {
 .float-right {
   float: right;
 }
-/*
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -213,8 +198,16 @@ body {
   clear: both;
   height: 0;
   margin-top: 50px;
-}*/
-.logout {
-  float: left;
-  margin-bottom: 20px;
+}
+.btn{
+    padding: 5px;
+    margin: 5px;
+    background-color: lightskyblue;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.user {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
