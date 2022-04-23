@@ -17,31 +17,19 @@ export default class MessageList extends React.Component {
         snapshot.forEach((childSnapshot) => {
           var childKey = childSnapshot.key;
           var childData = childSnapshot.val();
-          console.log(childData.message);
-          read.push(childData.message);
+          read.push({message: childData.message, poster: childData.email});
         });
-    
-      /*Ref.once("value", (snapshot) => {
-          snapshot.child("message").on("value", (data)=>{
-            read.push(data.val());
-            console.log(data.val());
-          })*/
-      
-        /*snapshot.forEach((element) => {
-          read.push(element.val().message);
-          console.log(element.val().message);
-        });*/
         this.setState({ chats: [...read] });
       });
     }
   }
   render() {
-    const { currentRoom, chats } = this.props;
+    const { currentRoom, chats, user } = this.props;
     return (
       <div>
         {this.state.chats.map((item, index) => {
           return (
-            <MessageItem key={index} idx={index} info={item}></MessageItem>
+            <MessageItem key={index} idx={index} info={item.message} poster={item.poster} user={user.email}></MessageItem>
           );
         })}
       </div>

@@ -14,14 +14,13 @@ export default class SignInPage extends React.Component {
       nickname: "",
       open: false,
     };
+
   }
   handleNewAccount = (email, password) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Signed in
-        console.log("signup!");
         this.setState({ open: true });
       })
       .catch((error) => {
@@ -29,14 +28,11 @@ export default class SignInPage extends React.Component {
         // ..
       });
   };
-  handleSignwithGoogle () {
+  handleSignwithGoogle = () => {
     this.props.handleSignwithGoogle();
-    console.log('you did it');
   }
   handleSignIn = () => {
-    console.log("Sign in ing...");
     this.props.handleSignIn(this.state.userEmail, this.state.password);
-    console.log("sign in did");
   };
 
   handleClose = () => {

@@ -22,7 +22,19 @@ export default class Home extends React.Component {
       snapshot.forEach((childSnapshot) => {
         var childKey = childSnapshot.key;
         var childData = childSnapshot.val();
-        keyname.push({name: childData.room, roomkey: childKey});
+        if (typeof(childData.permission) == 'string') {
+          if (childData.permission == this.state.user.email) {
+            keyname.push({ name: childData.room, roomkey: childKey });
+          }
+        }
+        else {
+          for (let each in childData.permission) {
+            if (childData.permission[each] == this.state.user.email) {
+              keyname.push({ name: childData.room, roomkey: childKey });
+              break;
+            }
+          }
+        }
       });
       this.setState({roomList: [...keyname]});
     });
@@ -61,14 +73,29 @@ export default class Home extends React.Component {
     }
   };
   handleAddMember() {
-    let member = prompt("Enter the email to invite the new member");
-    var Ref = firebase.database().ref("chatroom/" + this.state.currentRoom.roomkey);
-     Ref.once("value", (snapshot) => {
-       let origin = [];
-       origin.push(snapshot.val().permission);
+    if (this.state.currentRoom.roomkey == null) {
+      alert("please choose a room first!");
+    }
+    else {
+      let member = prompt("Enter the email to invite the new member");
+      let origin = [];
+      var Ref = firebase.database().ref("chatroom/" + this.state.currentRoom.roomkey +"/permission");
+        Ref.once("value", (snapshot) => {
+          if (typeof(snapshot.val()) == "string") {
+            origin.push(snapshot.val());
+          } else {
+            for (let each in snapshot.val()) {
+              origin.push(snapshot.val()[each]);
+            }
+          }
+          
+      }).then(()=>{
         origin.push(member);
-        Ref.child("permission").set(origin);
-     });
+        Ref.set(origin);
+        alert("success!")});
+
+    }
+
   }
   render() {
     const { classes, user, email, handleLogOut } = this.props;
@@ -127,32 +154,9 @@ export default class Home extends React.Component {
 
           <div class="chat-history">
             <ul>
-              <li class="clearfix">
-                <div class="message-data align-right">
-                  <span class="message-data-time">10:10 AM, Today</span> &nbsp;
-                  &nbsp;
-                  <span class="message-data-name">Olia</span>{" "}
-                  <i class="fa fa-circle me"></i>
-                </div>
-                <div class="message other-message float-right">
-                  Hi Vincent, how are you? How is the project coming along?
-                </div>
-              </li>
-
-              <li>
-                <div class="message-data">
-                  <span class="message-data-name">
-                    <i class="fa fa-circle online"></i> Vincent
-                  </span>
-                  <span class="message-data-time">10:12 AM, Today</span>
-                </div>
-                <div class="message my-message">
-                  Are we meeting today? Project has been already finished and I
-                  have results to show you.
-                </div>
-              </li>
-
-              <MessageList currentRoom={this.state.currentRoom}></MessageList>
+              <MessageList 
+              user={this.state.user}
+              currentRoom={this.state.currentRoom}></MessageList>
             </ul>
           </div>
 
