@@ -79,23 +79,23 @@ export default class Home extends React.Component {
       alert("please choose a room first!");
     } else {
       let member = prompt("Enter the email to invite the new member");
-      let origin = [];
-      var Ref = firebase
-        .database()
-        .ref("chatroom/" + this.state.currentRoom.roomkey + "/permission");
-      Ref.once("value", (snapshot) => {
-        if (typeof snapshot.val() == "string") {
-          origin.push(snapshot.val());
-        } else {
-          for (let each in snapshot.val()) {
-            origin.push(snapshot.val()[each]);
+      if (member != null) {
+        let origin = [];
+        var Ref = firebase.database().ref("chatroom/" + this.state.currentRoom.roomkey + "/permission");
+        Ref.once("value", (snapshot) => {
+          if (typeof snapshot.val() == "string") {
+            origin.push(snapshot.val());
+          } else {
+            for (let each in snapshot.val()) {
+              origin.push(snapshot.val()[each]);
+            }
           }
-        }
-      }).then(() => {
-        origin.push(member);
-        Ref.set(origin);
-        alert("success!");
-      });
+        }).then(() => {
+          origin.push(member);
+          Ref.set(origin);
+          alert("success!");
+        });
+      }
     }
   }
   render() {

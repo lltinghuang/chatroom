@@ -12,7 +12,7 @@ export default class SignInPage extends React.Component {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        alert("creat success!");
+        alert("create success!");
         this.props.handleSignIn(this.state.userEmail, this.state.password);
       })
       .catch((error) => {
@@ -31,6 +31,18 @@ export default class SignInPage extends React.Component {
         <header>
           <h1>Chat Room</h1>
         </header>
+          <div class="bird-container bird-container--one">
+            <div class="bird bird--one"></div>
+          </div>
+
+          <div class="bird-container bird-container--two">
+            <div class="bird bird--two"></div>
+          </div>
+
+          <div class="bird-container bird-container--three">
+            <div class="bird bird--three"></div>
+          </div>
+
         <div>
           <div id="login_form" class="form_class">
             <div class="form_div">
@@ -69,7 +81,7 @@ export default class SignInPage extends React.Component {
               >
                 Sign in
               </button>
-              
+
               <button
                 class="submit_class"
                 id="btnSignUp"
@@ -83,7 +95,6 @@ export default class SignInPage extends React.Component {
                 New account
               </button>
             </div>
-            
           </div>
         </div>
         <footer>
