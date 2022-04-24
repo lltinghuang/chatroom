@@ -149,13 +149,23 @@
     - handleAddRoom()從用戶端得到一個room name，將這個room name和目前使用者的email(加入permission)寫入database，並記錄那個新分支(room)的key，把新的room的資訊加到roomList，更新state：**roomList**，左側的聊天室RoomItem被重新建置，可以看到多了一個聊天室出來。
 - 登出
     - 當logout button被觸發，呼叫root的函式handleLogOut()，使用firebase.auth().signOut()成功登出後，更新state：**authenticated**，重新渲染頁面跳回登入介面。
+- 介面
+    - RWD：用vw, vh (可視範圍百分比)去寫
+    - CSS animation：
+        1. 登入介面的Chat Room字體顏色變化
+        2. 登入介面的飛鳥動畫
+        ```javascript
+         animation-iteration-count: infinite; //循環動畫
+         transform: translateY(20vh) translateX(30vw) scale(0.5); //利用translate移動物件，在動畫中切割時段，每次增加x軸和y軸的位子，讓鳥呈現從左上往右下飛
+        ```
 ### Firebase page link
 
-    Your web page URL
+    <https://midterm-109062224.web.app/>
 
 ### Others (Optional)
 
-    Anything you want to say to TAs.
+    當初在架環境跟處理webpack、把webpack後的東西deploy上去firebase上面花了不少時間，也因為對react的語法不熟所以一開始寫的時候都要看著講義跟lab6的code去寫。熟悉了之後就寫得順手很多，，大部分時間花在查詢firebase.database的語法和用法。過程中一直寫到懷疑人生，覺得自己寫不出來，最後雖然沒有把一些小功能做完，但成品還是讓人很有成就感。
+    謝謝教授和TA們每次都很耐心的回答我們各式各樣的問題！
 
 <style>
 table th{
