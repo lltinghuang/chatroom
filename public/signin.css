@@ -1,0 +1,226 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+h1 {
+    letter-spacing: 1.5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+    animation-name: example;
+    animation-duration: 4s;
+   animation-iteration-count: infinite;
+}
+@keyframes example {
+  from {color: white;}
+  to {color: yellow;}
+}
+#login_form {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    width: 100%;
+    background: url(https://pic3.mac69.com:8901/ico/202006/29142433_793e889e42.jpeg)  no-repeat center center;
+    background-size: cover;
+}
+.form_class {
+    width: 70%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: white;
+    font-family: 'system-ui';
+    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+}
+.form_div {
+    text-transform: uppercase;
+}
+.form_div > label {
+    letter-spacing: 3px;
+    font-size: 1rem;
+}
+.info_div {
+    text-align: center;
+    margin-top: 20px;
+}
+.info_div {
+    letter-spacing: 1px;
+}
+.field_class {
+    width: 100%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 0px;
+    text-indent: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'system-ui';
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+.submit_class {
+    width: 70%;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #FFE6D4;
+    padding: 15px 20px;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+    cursor: pointer;
+}
+footer {
+    height: 10vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -5px -5px 10px rgb(0,0,0,0.3);
+}
+footer > p {
+    text-align: center;
+    font-family: 'system-ui';
+    letter-spacing: 3px;
+}
+footer > p > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.bird {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells.svg);
+  background-size: auto 100%;
+  width: 90px;
+  height: 125px;
+  will-change: background-position;
+  -webkit-animation-name: fly-cycle;
+          animation-name: fly-cycle;
+  -webkit-animation-timing-function: steps(10);
+          animation-timing-function: steps(10);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.bird--one {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+.bird--two {
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
+  -webkit-animation-delay: -0.75s;
+          animation-delay: -0.75s;
+}
+.bird--three {
+  -webkit-animation-duration: 1.25s;
+          animation-duration: 1.25s;
+  -webkit-animation-delay: -0.25s;
+          animation-delay: -0.25s;
+}
+.bird-container {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  -webkit-transform: scale(0) translateX(-10vw);
+          transform: scale(0) translateX(-10vw);
+  will-change: transform;
+  -webkit-animation-name: fly-right-one;
+          animation-name: fly-right-one;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.bird-container--one {
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.bird-container--two {
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.bird-container--three {
+  -webkit-animation-duration: 14.6s;
+          animation-duration: 14.6s;
+  -webkit-animation-delay: 9.5s;
+          animation-delay: 9.5s;
+}
+@-webkit-keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+
+@keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+@-webkit-keyframes fly-right-one {
+  0% {
+    -webkit-transform: scale(0.3) translateX(-10vw);
+            transform: scale(0.3) translateX(-10vw);
+  }
+  20% {
+    -webkit-transform: translateY(20vh) translateX(30vw) scale(0.5);
+            transform: translateY(20vh) translateX(30vw) scale(0.5);
+  }
+  40% {
+    -webkit-transform: translateY(40vh) translateX(55vw) scale(0.6);
+            transform: translateY(40vh) translateX(55vw) scale(0.6);
+  }
+  60% {
+    -webkit-transform: translateY(60vh) translateX(80vw) scale(0.6);
+            transform: translateY(60vh) translateX(80vw) scale(0.6);
+  }
+  100% {
+    -webkit-transform: translateY(80vh) translateX(100vw) scale(0.6);
+            transform: translateY(80vh) translateX(100vw) scale(0.6);
+  }
+}
+
+@keyframes fly-right-one {
+    0% {
+    -webkit-transform: scale(0.3) translateX(-10vw);
+            transform: scale(0.3) translateX(-10vw);
+  }
+  20% {
+    -webkit-transform: translateY(20vh) translateX(30vw) scale(0.5);
+            transform: translateY(20vh) translateX(30vw) scale(0.5);
+  }
+  40% {
+    -webkit-transform: translateY(40vh) translateX(55vw) scale(0.6);
+            transform: translateY(40vh) translateX(55vw) scale(0.6);
+  }
+  60% {
+    -webkit-transform: translateY(60vh) translateX(80vw) scale(0.6);
+            transform: translateY(60vh) translateX(80vw) scale(0.6);
+  }
+  100% {
+    -webkit-transform: translateY(80vh) translateX(100vw) scale(0.6);
+            transform: translateY(80vh) translateX(100vw) scale(0.6);
+  }
+}
+ 
