@@ -160,11 +160,12 @@
         ```
 ### Firebase page link
 
-    <https://midterm-109062224.web.app/>
+<https://midterm-109062224.web.app>
 
 ### Others (Optional)
 
-    當初在架環境跟處理webpack、把webpack後的東西deploy上去firebase上面花了不少時間，也因為對react的語法不熟所以一開始寫的時候都要看著講義跟lab6的code去寫。熟悉了之後就寫得順手很多，，大部分時間花在查詢firebase.database的語法和用法。過程中一直寫到懷疑人生，覺得自己寫不出來，最後雖然沒有把一些小功能做完，但成品還是讓人很有成就感。
+    當初在架環境跟處理webpack、把webpack後的東西deploy上去firebase上面花了不少時間，也因為對react的語法不熟所以一開始寫的時候都要看著講義跟lab6的code去寫。熟悉了之後就寫得順手很多，大部分時間花在查詢firebase.database的語法和用法。
+    過程中一直寫到懷疑人生，覺得自己寫不出來，最後雖然沒有把一些小功能做完，但成品還是讓人很有成就感。
     謝謝教授和TA們每次都很耐心的回答我們各式各樣的問題！
 
 <style>
